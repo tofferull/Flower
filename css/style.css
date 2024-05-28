@@ -1,0 +1,535 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+@property --skyPrimary {
+  syntax: "<color>";
+  initial-value: lightblue;
+  inherits: false;
+}
+
+@property --skySecondary {
+  syntax: "<color>";
+  initial-value: #365969;
+  inherits: false;
+}
+
+.emoji {
+  position: absolute;
+  animation: goUp 5s ease forwards;
+}
+
+@keyframes goUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80vh);
+    opacity: 0;
+  }
+}
+
+.sky {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  --skyPrimary: lightblue;
+  --skySecondary: #365969;
+  background-image: radial-gradient(var(--skyPrimary), var(--skySecondary));
+  transition: --skyPrimary 4s ease-in, --skySecondary 4s ease-in;
+}
+
+.dark {
+  --skyPrimary: #030d1f;
+  --skySecondary: #07072a;
+  transition: --skyPrimary 4s ease-in, --skySecondary 4s ease-in;
+}
+
+@property --primaryColor {
+  syntax: "<color>";
+  initial-value: yellow;
+  inherits: false;
+}
+
+@property --secondaryColor {
+  syntax: "<color>";
+  initial-value: #f57f3f;
+  inherits: false;
+}
+
+.bling {
+  position: absolute;
+  width: 0.5em;
+  font-size: 0.3em;
+  box-shadow: 0 0 15px 5px #fff;
+  cursor: grab;
+}
+
+.bling:before{
+  content:"";
+  position:absolute;
+  background:white;
+  width:1em;
+  height:1.15em;
+  transform:rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+}
+
+.bling:after{
+  content:"";
+  position:absolute;
+  background: white;
+  width:1em;
+  height:1.15em;
+  transform:rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+}
+
+.day {
+  opacity: 1;
+  transition: opacity 4s ease-in-out;
+}
+
+.night {
+  opacity: 0;
+  transition: opacity 4s ease-in-out;
+}
+
+.c1 {
+  animation: animateCloud 35s linear infinite;
+  transform: scale(0.65) translateY(-500px);
+}
+
+.c2 {
+  animation: animateCloud 40s linear infinite;
+  transform: scale(0.5) translateY(-300px);
+}
+
+.c3 {
+  animation: animateCloud 20s linear infinite;
+  transform: scale(0.3) translateY(-350px);
+}
+
+.c4 {
+  animation: animateCloud 30s linear infinite;
+  transform: scale(0.5) translateY(-300px);
+}
+
+.c5 {
+  animation: animateCloud 18s linear infinite;
+  transform: scale(0.4) translateY(-450px);
+}
+
+@keyframes animateCloud {
+  0% {
+    margin-left: -1000px;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  border-radius: 100px;
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+  height: 120px;
+  width: 350px;
+  top: 350px;
+  cursor: grab;
+  opacity: 1;
+}
+
+.cloud:after, .cloud:before {
+  content: '';
+  position: absolute;
+  background: #fff;
+  z-index: -1;
+}
+
+.cloud:after {
+  border-radius: 100px;
+  height: 100px;
+  left: 50px;
+  top: -70px;
+  width: 100px;
+}
+
+.cloud:before {
+  border-radius: 200px;
+  width: 180px;
+  height: 180px;
+  right: 50px;
+  top: -70px;
+}
+
+.star {
+  transform-origin: 50vw;
+  position: relative;
+  cursor: grab;
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  right: 2.5em;
+  bottom: 2.5em;
+  background-image: radial-gradient(var(--primaryColor), var(--secondaryColor));
+  transition: rotate 2s, --primaryColor 4s ease-in, --secondaryColor 4s ease-in;
+  filter: blur(3px);
+}
+
+.moon {
+  transform-origin: 50vw;
+  rotate: 180deg;
+  width: 7em;
+  height: 7em;
+  left: 2.5em;
+  bottom: 2.5em;
+  --primaryColor: #d0c695;
+  --secondaryColor: #939361;
+  box-shadow: 0 0 20px #dadaa8;
+}
+
+.ground {
+  position: fixed;
+  width: 150vw;
+  height: 50vh;
+  margin-top: 25%;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(#8ec58e, darkgreen);
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  transform: translateX(-550px);
+}
+
+.grass {
+  position: absolute;
+  border-radius: 40%;
+  height: 2em;
+  width: 0.1em;
+  background-color: darkgreen;
+  transform: rotate(5deg);
+}
+
+.grass:before {
+  height: 1.5em;
+  width: inherit;
+  background-color: #6a9429;
+  transform: translateX(-6px);
+}
+
+.grass {
+  position: absolute;
+  border-radius: 40%;
+  height: 2em;
+  width: 0.5em;
+  background-color: #174817;
+}
+
+.stem {
+  position: absolute;
+  border-radius: 40%;
+  height: 3em;
+  width: 0.3em;
+  background-color: darkgreen;
+  box-shadow: 0 3px 5px black;
+}
+
+.grass:before,
+.stem:before {
+  content: "";
+  position: absolute;
+  rotate: -10deg;
+  bottom: 0;
+  right: 5px;
+  border-top-right-radius: 90%;
+  border-bottom-left-radius: 90%;
+}
+
+.stem:before {
+  height: 2.5em;
+  width: inherit;
+  background-color: #027a02;
+}
+
+.stem:after {
+  content: "";
+  position: absolute;
+  height: 1.5em;
+  width: inherit;
+  background-color: #50792b;
+  rotate: 10deg;
+  bottom: 0;
+  left: 5px;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+.flower {
+  position: absolute;
+  width: 0.7em;
+  height: 1em;
+  border-radius: 30% 30% 50% 50%;
+  background-image: linear-gradient(pink, #8c4e6f);
+  transform: translate(-3px, -10px);
+}
+
+.shadow {
+  background-color: black;
+  border-radius: 90%;
+  opacity: 0.4;
+  filter: blur(3px);
+  transition: transform 4s ease;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
